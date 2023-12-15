@@ -1,26 +1,28 @@
 <script setup>
 import { Head, Link } from '@inertiajs/vue3';
+import { onMounted, defineProps } from "vue";
 
-defineProps({
+const props = defineProps({
     canLogin: {
         type: Boolean,
     },
     canRegister: {
         type: Boolean,
     },
-    laravelVersion: {
-        type: String,
-        required: true,
-    },
-    phpVersion: {
-        type: String,
-        required: true,
+    resources:{
+        type: Array,
     },
 });
+
+
+onMounted(()=>{
+    console.log("Recursos cargados!", props.resources);
+});
+
 </script>
 
 <template>
-    <Head title="Welcome" />
+    <Head title="Recursos interesantes para aprender" />
 
     <div
         class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white"
@@ -316,7 +318,7 @@ defineProps({
                 </div>
 
                 <div class="ms-4 text-center text-sm text-gray-500 dark:text-gray-400 sm:text-end sm:ms-0">
-                    Laravel v{{ laravelVersion }} (PHP v{{ phpVersion }})
+                    
                 </div>
             </div>
         </div>

@@ -17,7 +17,11 @@ class ResourcesFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'tittle' => $this->faker->sentence,
+            'category_id' => Category::factory(), 
+            'link' => $this->faker->url,
+            'description' => $this->faker->paragraph,
+            'creator_id' => User::factory(),
         ];
     }
 }
