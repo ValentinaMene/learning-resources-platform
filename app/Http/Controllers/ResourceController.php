@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+
+use App\Models\Resource;
+use Inertia\Inertia;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
 
 class ResourceController extends Controller
 {
