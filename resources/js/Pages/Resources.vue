@@ -65,6 +65,26 @@ onMounted(()=>{
                     />
                 </svg>
             </div>
+            <div class="relative overflow-x-auto"> 
+                <table class="w-full text-sm text-left text-gray-500">
+                    <thead class="text-lg text-gray-700 uppercase bg-gray-500">
+                        <tr>
+                            <th scope="col" class="p-4">Recurso</th>
+                            <th scope="col">scope="col"Link</th>
+                            <th scope="col">Categoría</th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white">
+                    <tr v-for="resource in resources" :key="resource.id">
+                        <th scope="row" class="p-4" text-left>{{ resource.tittle }}</th>
+                        <th scope="row" class="p-4">
+                          <a target="_blank" :href="resource.link">Ver recurso</a>
+                        </th>
+                        <th scope="row" class="p-4">{{ resource.category.name }}</th>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </template>
