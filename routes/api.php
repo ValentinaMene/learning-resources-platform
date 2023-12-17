@@ -13,7 +13,8 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "api" middleware group. Make something great!
 |
 */
-
-Route::middleware('auth:sanctum')->post('/resources', function (Request $request) {
+ /*
+Route::middleware('auth')->post('/resources', function (Request $request) {
     dd($request->all());
 });
+*/

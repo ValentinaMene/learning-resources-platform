@@ -1,27 +1,21 @@
 <script setup>
 import {ref} from "vue";
+import axios from "axios";
     
-let tittle = ref("");
+let title = ref("");
 let description = ref("");
 let link = ref("");
 
 function createResource() {
     axios
     .post("/api/resources",{
-        tittle: tittle.value,
+        title: title.value,
         description: description.value,
         link: link.value,
     })
     .then((response) => {
         console.log(response);
     });
-
-    /*
-    console.log("Creando recurso...");
-    console.log(tittle.value);
-    console.log(description.value);
-    console.log(link.value)
-    */
 }
 
 </script>
@@ -29,7 +23,7 @@ function createResource() {
 
 <template>
     <div class="m-8">
-    <input type="text" v-model="tittle" />
+    <input type="text" v-model="title" />
     <input type="text" v-model="description"/>
     <input type="text" v-model="link"/>
     <button @click="createResource">Crear recurso</button>
