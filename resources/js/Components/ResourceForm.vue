@@ -1,7 +1,8 @@
 <script setup>
-import {ref} from "vue";
+import {ref, onMounted} from "vue";
 import axios from "axios";
     
+let categories = ref([]);
 let title = ref("");
 let description = ref("");
 let link = ref("");

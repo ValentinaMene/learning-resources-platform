@@ -34,7 +34,7 @@ class ResourceController extends Controller
     public function search(Request $request)
     {
         return Resource::where('title', 'like', "%$request->search%")
-            ->orWhere('description', 'like', "%$request->search%")
+            //>orWhere('description', 'like', "%$request->search%")
             ->with('category')
             ->get();
     }
