@@ -3,7 +3,11 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\Category;
+use App\Models\Resource;
 use Illuminate\Database\Seeder;
+
 
 class DatabaseSeeder extends Seeder
 {
@@ -12,9 +16,15 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        $categories = Category::factory()->count(5)->create();
 
-        foreach ($categories as $category){
+        Category::create(['name' => 'PHP']);
+        Category::create(['name' => 'JavaScript']);
+        Category::create(['name' => 'Vue.js']);
+        Category::create(['name' => 'React']);
+
+        //$categories = Category::factory()->count(5)->create();
+
+        foreach (Category::all() as $category){
             Resource::factory()->count(5)->create([
                 'category_id' => $category->id,
             ]);

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Resources>
  */
-class ResourcesFactory extends Factory
+class ResourceFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,7 +17,7 @@ class ResourcesFactory extends Factory
     public function definition(): array
     {
         return [
-            'tittle' => $this->faker->sentence,
+            'title' => $this->faker->sentence,
             'category_id' => Category::factory(), 
             'link' => $this->faker->url,
             'description' => $this->faker->paragraph,
