@@ -24,11 +24,10 @@ function createResource() {
         })
         .then((response) => {
             window.location.href = "/";
-        });
-        /*.catch((error) => {
+        })
+        .catch((error) => {
             alert(error.message);
-        });
-        */
+        });      
 }
 
 </script>
