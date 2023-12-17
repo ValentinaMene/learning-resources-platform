@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Resource;
 use Inertia\Inertia;
 use Illuminate\Http\Request;
@@ -28,5 +29,13 @@ class ResourceController extends Controller
             'creator_id' => $request->user()->id,
         ]);
         return Inertia::location('/');
+    }
+
+    public function search(Request $request)
+    {
+        return Resource::where('title', 'like', "%$request->search%")
+            ->orWhere('description', 'like', "%$request->search%")
+            ->with('category')
+            ->get();
     }
 }

@@ -1,6 +1,7 @@
 <script setup>
 import { Head, Link } from '@inertiajs/vue3';
-import { onMounted, defineProps } from "vue";
+import axios from "axios";
+import { onMounted, defineProps, ref, watch } from "vue";
 
 const props = defineProps({
     canLogin: {
@@ -14,9 +15,22 @@ const props = defineProps({
     },
 });
 
+let search = ref("");
+let filteredResources = ref([]);
+
+watch(search, (value) => {
+    axios.get("/api/resources?search=" +  value).then((response) => {
+        console.log(response.data, 'resultados de la busqueda');
+        filteredResources.value = response.data;
+    });
+});
 
 onMounted(()=>{
+
+    filteredResources.value = props.resources;
+    /*
     console.log("Recursos cargados!", props.resources);
+    */
 });
 
 </script>
@@ -65,12 +79,13 @@ onMounted(()=>{
                     />
                 </svg>
             </div>
-            <div class="relative overflow-x-auto"> 
+            <div class="relative overflow-x-auto">
+            <input type="text" placeholder="Buscar..." v-model="search" /> 
                 <table class="w-full text-sm text-left text-gray-500">
                     <thead class="text-lg text-gray-700 uppercase bg-gray-500">
                         <tr>
                             <th scope="col" class="p-4">Recurso</th>
-                            <th scope="col">scope="col"Link</th>
+                            <th scope="col">Link</th>
                             <th scope="col">Categoría</th>
                         </tr>
                     </thead>
