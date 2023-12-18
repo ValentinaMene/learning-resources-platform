@@ -155,7 +155,7 @@ function vote(resourceId) {
                     
 
                         </th>
-                        <th scope="row" class="p-4" text-left>{{ resource.tittle }}</th>
+                        <th scope="row" class="p-4" text-left>{{ resource.title }}</th>
                         <th scope="row" class="p-4">
                           <a target="_blank" :href="resource.link">Ver recurso</a>
                         </th>

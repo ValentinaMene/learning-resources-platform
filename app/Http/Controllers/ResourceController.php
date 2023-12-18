@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Voter;
 use App\Models\Category;
 use App\Models\Resource;
 use Inertia\Inertia;
@@ -22,9 +23,8 @@ class ResourceController extends Controller
 
     public function store(Request $request)
     {
-        dd($request->all());
         Resource::create([
-            'title' => $request->tittle,
+            'title' => $request->title,
             'link' => $request->link,
             'description' => $request->description,
             'category_id' => $request->category_id,
