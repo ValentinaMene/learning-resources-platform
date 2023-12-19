@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('resources', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->foreignId('category_id')->constrained;
+            $table->foreignId('category_id')->constrained();
             $table->foreignId('creator_id')->constrained('users');
             $table->string('link');
             $table->text('description');

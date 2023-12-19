@@ -18,6 +18,7 @@ class ResourceController extends Controller
             'canRegister' => Route::has('register'),
             'resources' => Resource::with('category', 'votes')->latest()->get(),
             'categories' => Category::all(),
+            'voterId' => Voter::getOrCreateVoter($request)->code,
         ]);
     }
 
